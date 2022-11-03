@@ -34,9 +34,25 @@ function attackBoss() {
         damage += h.damage
     })
     boss.health -= damage
-    if (boss.health <= 0) boss.health = 0
+    if (boss.health <= 0) {
+        boss.health = 0;
+        let levelUpBtn = document.getElementById('revive');
+        levelUpBtn.style.display = 'block';
+        document.getElementById('boss-level').innerText = boss.level + 1;
+
+        //regenerateBoss()
+    }
     console.log(boss.health);
     drawHealth()
+}
+
+function regenerateBoss() {
+    boss.level ++
+    boss.health = boss.level*100;
+    boss.maxHealth = boss.level*100;
+    document.getElementById('revive').style.display = 'none';
+    drawHealth()
+    bossAttack()
 }
 
 function bossAttack() {
@@ -44,22 +60,29 @@ function bossAttack() {
         if (boss.health == 0) {
             clearInterval(bossAttacking)
             console.log("boss dead")
+            
         } else {
             heroes.forEach(hh => {
                 hh.health -= 5
-            })}drawHealth()
+                drawHealth()
+            })} drawHealth()
         }, 1000)
-}
+} 
 
 
 function drawHealth() {
     let bossHealth = document.getElementById('squee')
-    bossHealth.querySelector(".progress-bar").style.width = boss.health + '%'
+    bossHealth.querySelector(".progress-bar").style.width = boss.health/boss.level + '%'
     heroes.forEach(hh => {
         document.getElementById(hh.name).querySelector(".health").innerText = hh.health
-        if (hh.health <=0 ) {hh.health = 0}
+        if (hh.health <= 0 ) {
+            hh.health = 0;
+            hh.emoji = '🪦';
+            document.getElementById(hh.name).querySelector(".emoji").innerText = hh.emoji;
+        }
     }
         )
+
     }
 
 
@@ -70,10 +93,7 @@ function startFight() {
 }
 
 function endFight() {
-    if (boss.health == 0) {
-        clearInterval(bossAttacking),
-            console.log(bossAttacking)
-    }
+    
 }
 
 let firstStrike = setInterval(() => { startFight() }, 500)

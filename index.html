@@ -29,7 +29,7 @@
             <div class="col-3">
                 <div class="card" id="phaelius">
                     <p>phaelius</p>
-                    <p class="fs-1">🧝‍♂️</p>
+                    <p class="fs-1 emoji">🧝‍♂️</p>
                     <p>health: <span class="health">50</span></p>
                     <p id="phaeliuslevel">level</p>
                 </div>
@@ -46,7 +46,12 @@
                             aria-valuemin="0" aria-valuemax="100">boss health</div>
                     </div>
                     <h2>squee</h2>
-                    <p class="fs-1">👺</p>
+                    <p class="fs-1 emoji">👺</p>
+
+                </div>
+                <div class="col-12 hidden" id="revive">
+                    <button class="btn btn-danger" onclick="regenerateBoss()">Level <span
+                            id="boss-level">1</span></button>
                 </div>
             </div>
         </section>
