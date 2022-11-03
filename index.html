@@ -22,7 +22,7 @@
                 <div class="card" id="sloth">
                     <p>sloth sparticus</p>
                     <p class="fs-1">🦆</p>
-                    <p id="slothhealth">health</p>
+                    <p>health: <span class="health">100</span></p>
                     <p id="slothlevel">level</p>
                 </div>
             </div>
@@ -30,7 +30,7 @@
                 <div class="card" id="phaelius">
                     <p>phaelius</p>
                     <p class="fs-1">🧝‍♂️</p>
-                    <p id="phaeliushealth">health</p>
+                    <p>health: <span class="health">50</span></p>
                     <p id="phaeliuslevel">level</p>
                 </div>
             </div>
@@ -40,9 +40,9 @@
         <!-- SECTION BOSS -->
         <section class="row my-5 justify-content-center">
             <div class="col-7 text-center">
-                <div class="card" id="squee">
+                <div class="card" id="squee" onclick="attackBoss()">
                     <div class="progress">
-                        <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25"
+                        <div class="progress-bar" role="progressbar" style="width: 100%;" aria-valuenow="25"
                             aria-valuemin="0" aria-valuemax="100">boss health</div>
                     </div>
                     <h2>squee</h2>
